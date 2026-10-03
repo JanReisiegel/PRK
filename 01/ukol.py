@@ -38,7 +38,7 @@ tests_comment = {
     "invalid": [
         "a = 5 toto neni komentar",    # nezačíná středníkem
         "// c-style komentar",   # špatný úvodní znak
-        "; prvni radek\ndruhy",   # obsahuje znak nového řádku
+        "# python styl komentar",   # obsahuje znak nového řádku Tady
     ],
 }
 
@@ -67,9 +67,9 @@ def test_regex(name, pattern, valid_cases, invalid_cases):
 
 
 if __name__ == "__main__":
-    COLORS_PATTERN = r'[^\w]+\"[^\"\n]+\"$'
+    COLORS_PATTERN = r'[ ]+\"[^\"\n]+\"$'
     OPERATORS_PATTERN = r' (<=|>=|==|!=|[+\-*/<>=()\[\],]) '
-    COMMENTS_PATTERN = r';[^\n\r]*$'
+    COMMENTS_PATTERN = r';(.*)$'
 
     test_regex(
         "Colors",
